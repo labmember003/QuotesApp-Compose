@@ -5,12 +5,12 @@ plugins {
 
 android {
     namespace 'com.falcon.quotesapp_compose'
-    compileSdk 32
+    compileSdk 33
 
     defaultConfig {
         applicationId "com.falcon.quotesapp_compose"
         minSdk 24
-        targetSdk 32
+        targetSdk 33
         versionCode 1
         versionName "1.0"
 
@@ -60,4 +60,12 @@ dependencies {
     androidTestImplementation "androidx.compose.ui:ui-test-junit4:$compose_ui_version"
     debugImplementation "androidx.compose.ui:ui-tooling:$compose_ui_version"
     debugImplementation "androidx.compose.ui:ui-test-manifest:$compose_ui_version"
+
+    androidTestImplementation "androidx.compose.material:material-icons-extended:$compose_ui_version"
+    // Dependency to add in kotlin app to use external icons from fonts.google.com
+
+    implementation "com.google.android.material:compose-theme-adapter:1.2.1"
+
+    implementation 'com.google.code.gson:gson:2.10.1'
+
 }
