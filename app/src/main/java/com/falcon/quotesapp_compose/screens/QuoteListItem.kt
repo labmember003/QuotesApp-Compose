@@ -18,13 +18,13 @@ import com.falcon.quotesapp_compose.R
 import com.falcon.quotesapp_compose.models.Quote
 
 @Composable
-fun QuoteListItem(quote: Quote, onClick: () -> Unit) {
+fun QuoteListItem(quote: Quote, onClick: (quote: Quote) -> Unit) {
     Card(
         elevation = 4.dp,
         modifier = Modifier
             .padding(8.dp)
             .clickable {
-                onClick()
+                onClick(quote)
             }
     ) {
         Row(
