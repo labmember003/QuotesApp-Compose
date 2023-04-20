@@ -1,5 +1,6 @@
 package com.falcon.quotesapp_compose.screens
 
+import androidx.activity.compose.BackHandler
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
@@ -18,12 +19,22 @@ import androidx.compose.ui.text.font.Font
 import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import com.falcon.quotesapp_compose.DataManager
+import com.falcon.quotesapp_compose.DataManager.currentQuote
+import com.falcon.quotesapp_compose.Pages
 import com.falcon.quotesapp_compose.R
 import com.falcon.quotesapp_compose.models.Quote
 
 
 @Composable
 fun QuoteDetail(quote: Quote) {
+
+    BackHandler(
+        onBack = {
+            DataManager.switchPaging(null)
+        }
+    )
+
     Box(
         contentAlignment = Alignment.Center,
         modifier = Modifier

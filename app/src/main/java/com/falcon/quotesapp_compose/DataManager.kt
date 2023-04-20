@@ -24,7 +24,7 @@ object DataManager {
         isDataLoaded.value = true
     }
 
-    fun switchPaging(quote: Quote) {
+    fun switchPaging(quote: Quote?) {
         if (currentPage.value == Pages.LISTING) {
             currentPage.value = Pages.DETAIL
             currentQuote = quote

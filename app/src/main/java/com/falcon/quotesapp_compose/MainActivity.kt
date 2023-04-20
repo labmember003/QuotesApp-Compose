@@ -4,15 +4,22 @@ import android.os.Bundle
 import android.util.Log
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
+import androidx.compose.foundation.Image
+import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Text
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.FormatQuote
+import androidx.compose.material.icons.outlined.Add
+import androidx.compose.material.icons.outlined.Close
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.style.TextAlign
 import com.falcon.quotesapp_compose.DataManager.currentQuote
 import com.falcon.quotesapp_compose.DataManager.switchPaging
@@ -28,7 +35,7 @@ class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         CoroutineScope(Dispatchers.IO).launch {
-            delay(5000)
+            delay(10000)
             DataManager.loadAssetsFromFile(applicationContext)
         }
         setContent {
@@ -55,9 +62,21 @@ fun App() {
         }
 
     } else {
-//        Column(
-//            horizontalAlignment = Alignment.CenterHorizontally,
-//            verticalArrangement = Arrangement.Center,
+        Column(
+            horizontalAlignment = Alignment.CenterHorizontally,
+            verticalArrangement = Arrangement.Center,
+            modifier = Modifier.fillMaxSize(1f)
+
+        ) {
+            Text(
+                text = "Loading...",
+                style = MaterialTheme.typography.h4,
+                textAlign = TextAlign.Center,
+            )
+        }
+//        alternate way
+//        Box(
+//            contentAlignment = Alignment.Center,
 //            modifier = Modifier.fillMaxSize(1f)
 //        ) {
 //            Text(
@@ -65,20 +84,8 @@ fun App() {
 //                style = MaterialTheme.typography.h4,
 //                textAlign = TextAlign.Center,
 //                modifier = Modifier
-//                    .fillMaxSize(1f)
 //            )
 //        }
-        Box(
-            contentAlignment = Alignment.Center,
-            modifier = Modifier.fillMaxSize(1f)
-        ) {
-            Text(
-                text = "Loading...",
-                style = MaterialTheme.typography.h4,
-                textAlign = TextAlign.Center,
-                modifier = Modifier
-            )
-        }
 
     }
 }
@@ -88,4 +95,4 @@ enum class Pages {
     DETAIL
 }
 
-//6:13
+//data defined in top composable and for changing that data voh hum apne composable ko pass krte hai
